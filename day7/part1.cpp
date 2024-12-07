@@ -5,7 +5,7 @@
 using namespace std;
 
 bool backtrack(const unsigned long& target, const vector<int>& digits, unsigned long curr, int i) {
-    if (i == digits.size()) return false;
+    if (i == digits.size() || curr > target) return false;
     if (i == digits.size() - 1 && curr == target) return true;
 
     return backtrack(target, digits, digits[i + 1] + curr, i + 1) || backtrack(target, digits, digits[i + 1] * curr, i + 1);
