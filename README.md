@@ -7,3 +7,7 @@ Welcome to my journey helping the Senior Elvish Historians find the Chief Histor
 My solutions are all done in C++ (for better or worse).
 
 https://adventofcode.com/
+
+<p align="left">
+  <img src="elf.webp" width="350" title="hover text">
+</p>
