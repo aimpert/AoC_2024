@@ -6,7 +6,7 @@
 
 using namespace std;
 
-unsigned long countDigits(unsigned long number) {
+int long countDigits(unsigned long number) {
     if (number < 10) return 1; // skip the division computation we know it's false
     int i = 0;
     while (number > 0) {
@@ -58,7 +58,7 @@ int main () {
     }
 
     cout << stones.size() << endl;
-    
+
     input.close();
     return 0;
 }
