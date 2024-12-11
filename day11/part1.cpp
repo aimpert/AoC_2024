@@ -20,8 +20,7 @@ pair<int, int> splitStone(unsigned long number, int digits) {
         pair<int, int> res;
         int divisor = pow(10, digits / 2);
         res.first = number / divisor;
-        int rightHalf = number % divisor;
-        res.second = rightHalf;
+        res.second = number % divisor;
         return res;
 }
 
