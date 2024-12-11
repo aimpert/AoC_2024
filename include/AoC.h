@@ -31,3 +31,13 @@ auto readNumbers(const string& buf) {
         return Container(numbers.begin(), numbers.end());
     }
 }
+
+vector<int> readDigits(const string& buf) {
+    vector<int> res;
+    for (char c : buf) {
+        if (isdigit(c)) {
+            res.push_back(c - '0');   
+        }
+    }
+    return res;
+}
