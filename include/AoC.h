@@ -10,17 +10,24 @@ auto readNumbers(const string& buf) {
 
     T dig = 0;
     bool collect = false;
+    bool negative = false;
     for (char c : buf) {
         if (isdigit(c)) {
             dig = dig * 10 + c - '0';
+            if (negative) {
+                dig = dig * -1;
+                negative = !negative;
+            }
             collect = true;
             
         }
+        else if (c == '-') negative = !negative;
         else if (collect) {
             numbers.push_back(dig);
             dig = 0;
             collect = false;
         }
+
     }
 
     if (collect) numbers.push_back(dig); // just in case
