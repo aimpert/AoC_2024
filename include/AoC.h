@@ -14,15 +14,15 @@ auto readNumbers(const string& buf) {
     for (char c : buf) {
         if (isdigit(c)) {
             dig = dig * 10 + c - '0';
-            if (negative) {
-                dig = dig * -1;
-                negative = !negative;
-            }
             collect = true;
             
         }
-        else if (c == '-') negative = !negative;
+        else if (c == '-') negative = true;
         else if (collect) {
+            if (negative) {
+                dig = dig * -1;
+                negative = false;
+            }
             numbers.push_back(dig);
             dig = 0;
             collect = false;
@@ -30,8 +30,13 @@ auto readNumbers(const string& buf) {
 
     }
 
-    if (collect) numbers.push_back(dig); // just in case
-
+    if (collect) {
+        if (negative) {
+            dig = dig * -1;
+            negative = false;
+        }
+        numbers.push_back(dig); // just in case
+    }
     if constexpr (std::is_same_v<Container, T>) {
         return numbers.empty() ? static_cast<T>(0) : numbers.front();
     } else {
